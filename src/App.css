@@ -16,6 +16,24 @@
   grid-template-rows: 60px auto 60px;
   grid-gap: 20px;
 }
+.new-massage {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeef1;
+  position: fixed;
+  width: 80%;
+  bottom: 0;
+  width: 775px;
+}
+.new-massage input {
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  height: 40px;
+  background: none;
+}
 
 .dialogs {
   background-color: lightslategrey;

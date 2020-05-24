@@ -16,6 +16,7 @@ function Messenger() {
         <Search/>
         <Dialogs/>
         <MassageList/>
+
     </div>
 
 }
@@ -50,6 +51,11 @@ function MassageList() {
         <div className="massage-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto</div>
         <MassageItem/>
         <MassageItem/>
+
+        <div className="new-massage">
+            <input type="text" placeholder="Enter your massage"/>
+            
+        </div>
 
     </div>
 }
