@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
 function Messenger() {
     return <div className="messenger">
-        <div  className="title"> <h1>Messenger</h1></div>
+        <div className="title"><h1>Messenger</h1></div>
         <Search/>
         <Dialogs/>
         <MassageList/>
@@ -44,27 +44,41 @@ function DialogItem() {
 }
 
 function MassageList() {
+
+    let initState = ["Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto",
+        "consectetur cupiditate", "Lorem ipsum dolor sit amet",
+        "Hello again"
+    ]
+    let [massage, setMassage] = useState<Array<string>>(initState)
+    let [newMassage, setNewMassage] = useState<string>("")
+
+    const addNewMassage = ()=> {
+     setMassage([...massage, newMassage])
+        setNewMassage("")
+    }
+
+    // @ts-ignore
+    const onEnterPress = (e:KeyboardEvent<HTMLInputElement>) => {if (e.charCode === 13) {addNewMassage()}}
     return <div className="massage-list">
-        <MassageItem/>
-        <div className="massage-item">Lorem ipsum dolor sit amet</div>
-        <MassageItem/>
-        <div className="massage-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto</div>
-        <MassageItem/>
-        <MassageItem/>
+        {massage.map((m) => <MassageItem massage={m}/>)}
+
 
         <div className="new-massage">
-            <input type="text" placeholder="Enter your massage"/>
-            
+            <input onChange={e => setNewMassage(e.currentTarget.value)} onKeyPress={onEnterPress} type="text" value={newMassage}
+                   placeholder="Enter your massage"/>
+
         </div>
 
     </div>
 }
 
-function MassageItem() {
-    return <div className="massage-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto
-        consectetur cupiditate
-        ducimus et eum eveniet, id inventore ipsam mollitia, nobis, non nulla odio officiis quasi quia velit.
-    </div>
+type MassageItemPropsType = {
+    massage: string
+}
+
+function MassageItem({massage}: MassageItemPropsType) {
+    return <div className="massage-item">{massage} </div>
 
 }
 

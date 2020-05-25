@@ -1,9 +1,9 @@
 .App {
   height: 100vh;
   text-align: center;
-  width: 80%;
+  width: 60%;
   display: flex;
-  margin-left: 10%;
+  margin-left: 20%;
 }
 
 
@@ -14,7 +14,6 @@
   background: #eeeef1;
   grid-template-columns: 350px auto;
   grid-template-rows: 60px auto 60px;
-  grid-gap: 20px;
 }
 .new-massage {
   padding: 10px;
@@ -23,9 +22,8 @@
   background: #fff;
   border-top: 1px solid #eeeef1;
   position: fixed;
-  width: 80%;
   bottom: 0;
-  width: 775px;
+  width: 30%;
 }
 .new-massage input {
   flex: 1;
